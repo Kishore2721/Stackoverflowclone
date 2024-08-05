@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { useNavigate } from 'react-router-dom'           
+import { useNavigate, Link} from 'react-router-dom'           
 import "./Auth.css"
 import icon from '../../assets/icon.webp'
 import Aboutauth from './Aboutauth'
@@ -71,7 +71,7 @@ const Auth = () => {
               <h4>Password</h4>
               {!issignup && (
                 <p style={{ color: "#007ac6", fontSize: "13px" }}>
-                  Forgot Password?
+                  <Link to='/forgetpass' className='forget'>Forgot Password?</Link>  
                 </p>
               )}
             </div>
