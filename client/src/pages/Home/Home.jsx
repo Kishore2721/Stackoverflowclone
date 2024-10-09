@@ -6,6 +6,7 @@ import HomeMainbar from '../../components/HomeMainbar/HomeMainbar';
 
 const Home = () => {
   return (
+    <body>
      <div className='home-container-1'>
       <LeftSidebar />
       
@@ -14,6 +15,7 @@ const Home = () => {
           <RightSidebar />
       </div>
     </div>
+    </body>
   )
 }
 

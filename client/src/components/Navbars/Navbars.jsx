@@ -28,7 +28,11 @@ function Navbar({ handleslidein }) {
             }
         }
         dispatch(setcurrentuser(JSON.parse(localStorage.getItem("Profile"))))
-    },[User?.token,dispatch]);
+    },[User?.token,dispatch,handlelogout]);
+
+
+      
+
     return (
         <nav className="main-nav">
             <div className="navbar">
@@ -48,10 +52,28 @@ function Navbar({ handleslidein }) {
                     <Link to="/" className="nav-item nav-btn res-nav">
                         For Teams
                     </Link>
+                        
+                    <div className='language '>
+                    <h4 className="nav-item nav-btn res-nav ">Select Language</h4>
+                    <select>
+                        <option >English</option>
+                        <option>Hindi</option>
+                        <option>Portugese</option>
+                        <option>chinese</option>
+                        <option>French</option>
+                        <option>Spanish</option>
+                        
+                    </select>
+                        
+                    
+                </div>
+
                     <form><input type="text" placeholder='Search...' />
                         <img src={search} alt="search" width='18' className='search-icon' />
                     </form>
                 </div>
+
+                
                 <div className="navbar-2">
                     {User === null ? (
                         <Link to='/Auth' className='nav-item nav-links'>

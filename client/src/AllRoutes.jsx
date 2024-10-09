@@ -8,9 +8,13 @@ import DisplayQuestion from './pages/Questions/DisplayQuestion';
 import Tags from './pages/Tags/Tags';
 import Users from './pages/Users/Users';
 import Userprofile from './pages/Userprofile/Userprofile'
+import Forgetpass from './pages/Forgetpass/Forgetpass';
 
 function AllRoutes({slidein,handleslidein}) {
+  
   return (
+   
+    
     <Routes>
       <Route  path='/' element={<Home  slidein={slidein} handleslidein={handleslidein}/>}/>
       <Route  path='/Auth' element={<Auth/>}/>
@@ -20,8 +24,10 @@ function AllRoutes({slidein,handleslidein}) {
       <Route  path='/Tags' element={<Tags slidein={slidein} handleslidein={handleslidein}/>}/>
       <Route  path='/Users' element={<Users slidein={slidein} handleslidein={handleslidein}/>}/>
       <Route  path='/Users/:id' element={<Userprofile slidein={slidein} handleslidein={handleslidein}/>}/>
+      <Route  path='/Forgetpass' element={<Forgetpass slidein={slidein} handleslidein={handleslidein}/>}/>
 
     </Routes>
+    
   )
 }
 
