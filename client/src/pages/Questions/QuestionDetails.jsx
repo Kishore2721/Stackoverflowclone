@@ -17,7 +17,7 @@ const QustionDetails = () => {
     const user =useSelector((state)=>state.currentuserreducer)
     const location=useLocation()
     const navigate=useNavigate()
-    const url="http://localhost:3000"
+    const url=`${process.env.REACT_APP_BACKEND_URL}`
     const handlepostans=(e,answerlength)=>{
         e.preventDefault();
         if(user ===null){
