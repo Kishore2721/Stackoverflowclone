@@ -5,10 +5,10 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "prestart": "chmod +x ./node_modules/.bin/nodemon",
-    "start": "nodemon index.js",
-    "dev": "nodemon index.js"
-  },
+  "start": "node server/index.js",
+  "dev": "nodemon server/index.js"
+}
+,
   "author": "Kishore",
   "license": "ISC",
   "dependencies": {
