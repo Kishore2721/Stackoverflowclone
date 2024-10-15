@@ -4,12 +4,19 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
-import { legacy_createStore as createstore, applyMiddleware, compose } from 'redux';
-import {thunk} from "redux-thunk"
+import { legacy_createStore as createStore, applyMiddleware, compose } from 'redux'; // fixed typo in createStore
+import { thunk } from "redux-thunk"; // Correct: importing as named export
+ // Correct import
+
 import reducers from './reducers';
 
-const store = createstore(reducers, compose(applyMiddleware(thunk)))
+// Create the Redux store
+const store = createStore(reducers, compose(applyMiddleware(thunk)));
+
+// Create root element for React rendering
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+// Render the App wrapped in the Redux Provider
 root.render(
   <Provider store={store}>
     <React.StrictMode>
@@ -17,14 +24,6 @@ root.render(
     </React.StrictMode>
   </Provider>
 );
-const PORT = process.env.PORT || 5000;
-App.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
 
-
+// Measure performance, optional
 reportWebVitals();
-
-
-
-
