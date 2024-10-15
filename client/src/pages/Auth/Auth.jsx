@@ -14,7 +14,7 @@ const Auth = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
       alert("Enter email and password");
@@ -24,10 +24,16 @@ const Auth = () => {
       alert("Enter a name to continue");
       return;
     }
-    if (isSignup) {
-      dispatch(signup({ name, email, password }, navigate));
-    } else {
-      dispatch(login({ email, password }, navigate));
+
+    // Determine the action based on signup or login
+    const action = isSignup ? signup : login;
+
+    try {
+      // Await the dispatch call
+      await dispatch(action({ name, email, password }, navigate));
+      // Handle navigation internally in the action creator, if needed
+    } catch (error) {
+      alert("Login failed. Please try again."); // Handle errors gracefully
     }
   };
 
@@ -54,6 +60,7 @@ const Auth = () => {
                 value={name} 
                 onChange={(e) => setName(e.target.value)} 
                 autoComplete="name"
+                required
               />
             </label>
           )}
@@ -66,6 +73,7 @@ const Auth = () => {
               value={email} 
               onChange={(e) => setEmail(e.target.value)} 
               autoComplete="email"
+              required
             />
           </label>
           <label htmlFor="password">
@@ -84,11 +92,12 @@ const Auth = () => {
               value={password} 
               onChange={(e) => setPassword(e.target.value)} 
               autoComplete={isSignup ? "new-password" : "current-password"}
+              required
             />
           </label>
           {isSignup && (
             <label htmlFor="check">
-              <input type="checkbox" id="check" />
+              <input type="checkbox" id="check" required />
               <p style={{ fontSize: "13px" }}>I'm not a robot</p>
             </label>
           )}

@@ -45,7 +45,7 @@ const QustionDetails = () => {
     }
     const handleupvote=()=>{
         if(user=== null){
-            alert("Login or Signup to answer a question")
+            alert(" or Signup to answer a question")
             navigate('/Auth')
         }else{
             dispatch(votequestion(id,"upvote"))
